@@ -4,5 +4,7 @@
     <string name="app_name">NaturalPomo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="work">WORK (25\')</string>
+    <string name="rest">REST (5\')</string>
 
 </resources>

@@ -20,4 +20,25 @@
         android:gravity="center_horizontal"
         android:textSize="@dimen/clock" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/work"
+        android:id="@+id/work"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/standard"
+        android:background="#ff4ddd8b"
+        android:layout_below="@+id/clock" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/rest"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/standard"
+        android:background="#ffddca20"
+        android:layout_below="@+id/work" />
+
 </RelativeLayout>
