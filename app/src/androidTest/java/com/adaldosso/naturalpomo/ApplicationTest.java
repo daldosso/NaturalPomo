@@ -1,4 +1,4 @@
-package com.adaldosso.naturalpomo;
+package com.adaldosso.naturaltimer;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

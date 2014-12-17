@@ -5,9 +5,9 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "com.adaldosso.naturalpomo"
+        applicationId "com.adaldosso.naturaltimer"
         minSdkVersion 15
-        targetSdkVersion 20
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }

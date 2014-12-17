@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/clock"
-        android:text="@string/hello_world"
+        android:text="@string/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -18,27 +18,40 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/clock" />
+        android:textSize="@dimen/clock"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/clock_margin_top" />
 
-    <Button
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/work"
-        android:id="@+id/work"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/standard"
-        android:background="#ff4ddd8b"
-        android:layout_below="@+id/clock" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:layout_marginBottom="40dp">
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/rest"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/standard"
-        android:background="#ffddca20"
-        android:layout_below="@+id/work" />
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/work"
+            android:id="@+id/work"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/standard"
+            android:background="#ff4ddd8b"
+            android:onClick="startWork" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/rest"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/standard"
+            android:background="#ffddca20"
+            android:layout_below="@+id/work"
+            android:onClick="startRest"
+            android:id="@+id/button" />
+    </RelativeLayout>
 
 </RelativeLayout>
