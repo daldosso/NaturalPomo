@@ -28,6 +28,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
+        android:clickable="false"
+        android:focusable="false"
         android:layout_marginBottom="40dp">
 
         <Button
@@ -38,7 +40,9 @@
             android:id="@+id/work"
             android:textColor="@android:color/white"
             android:textSize="@dimen/standard"
-            android:background="#ff4ddd8b"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/work_button"
             android:onClick="startWork" />
 
         <Button
@@ -48,7 +52,9 @@
             android:text="@string/rest"
             android:textColor="@android:color/white"
             android:textSize="@dimen/standard"
-            android:background="#ffddca20"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/rest_button"
             android:layout_below="@+id/work"
             android:onClick="startRest"
             android:id="@+id/button" />
