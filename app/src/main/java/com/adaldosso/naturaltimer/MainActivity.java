@@ -16,13 +16,14 @@ public class MainActivity extends Activity {
     public static final int WORK_TIME = 25;
     public static final int REST_TIME = 5;
     private CountDownTimer timer;
-    private MediaPlayer mp;
+    private MediaPlayer tick, ding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mp = MediaPlayer.create(getApplication(), R.raw.clock);
+        tick = MediaPlayer.create(getApplication(), R.raw.clock);
+        ding = MediaPlayer.create(getApplication(), R.raw.ding);
         startWork(null);
     }
 
@@ -53,14 +54,13 @@ public class MainActivity extends Activity {
                 int seconds = (int) (millisUntilFinished / 1000);
                 int minutes = (int) ((millisUntilFinished / 1000) / 60);
                 if (timerType == TimerType.WORK) {
-                    mp.start();
+                    tick.start();
                 }
                 clock.setText(String.format("%d:%02d", minutes, seconds % 60));
-//                audioManager.playSoundEffect(android.view.SoundEffectConstants.CLICK);
             }
 
             public void onFinish() {
-                clock.setText("done!");
+                ding.start();
                 if (timerType == TimerType.WORK) {
                     startTimer(REST_TIME, TimerType.REST);
                 } else {
