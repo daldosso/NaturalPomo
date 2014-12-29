@@ -1,4 +1,4 @@
-package com.adaldosso.naturaltimer;
+package com.adaldosso.naturalpomotimer;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
@@ -21,23 +21,23 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        tick = MediaPlayer.create(getApplication(), R.raw.clock);
-        ding = MediaPlayer.create(getApplication(), R.raw.ding);
+        setContentView(com.adaldosso.naturalpomotimer.R.layout.activity_main);
+        tick = MediaPlayer.create(getApplication(), com.adaldosso.naturalpomotimer.R.raw.clock);
+        ding = MediaPlayer.create(getApplication(), com.adaldosso.naturalpomotimer.R.raw.ding);
         startWork(null);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(com.adaldosso.naturalpomotimer.R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == com.adaldosso.naturalpomotimer.R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         if (timer != null) {
             timer.cancel();
         }
-        final TextView clock = (TextView) findViewById(R.id.clock);
+        final TextView clock = (TextView) findViewById(com.adaldosso.naturalpomotimer.R.id.clock);
         timer = new CountDownTimer(time * 60 * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
