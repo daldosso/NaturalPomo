@@ -35,8 +35,34 @@
         android:layout_marginBottom="40dp"
         android:id="@+id/relativeLayout">
 
+        <LinearLayout
+            android:id="@+id/pomoCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_old"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp" />
+
+            <TextView
+                android:id="@+id/pomoNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pomoNumber"
+                android:textSize="@dimen/pomoCounter"
+                android:textColor="@color/red"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/status"
+            android:layout_below="@id/pomoCounter"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/resting"

@@ -81,9 +81,12 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-                pomoCounter++;
                 ding.start();
                 if (timerType == TimerType.WORK) {
+                    pomoCounter++;
+                    TextView pomoNumber = (TextView) findViewById(R.id.pomoNumber);
+                    pomoNumber.setText(pomoCounter);
+
                     if (pomoCounter % POMO_REST_NUMBER == 0 ) {
                         startTimer(LONG_REST_TIME, TimerType.LONG_REST);
                     } else {

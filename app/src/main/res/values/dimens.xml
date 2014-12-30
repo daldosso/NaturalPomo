@@ -6,4 +6,5 @@
     <dimen name="standard">50sp</dimen>
     <dimen name="clock_margin_top">40dp</dimen>
     <dimen name="status">40sp</dimen>
+    <dimen name="pomoCounter">30sp</dimen>
 </resources>

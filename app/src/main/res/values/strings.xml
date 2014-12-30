@@ -10,5 +10,6 @@
     <string name="working">Working</string>
     <string name="resting">Resting</string>
     <string name="long_resting">Long resting</string>
+    <string name="pomoNumber">0</string>
 
 </resources>
