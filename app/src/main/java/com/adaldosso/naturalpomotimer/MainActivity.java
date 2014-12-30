@@ -52,6 +52,8 @@ public class MainActivity extends Activity {
             timer.cancel();
         }
         final TextView clock = (TextView) findViewById(R.id.clock);
+        TextView pomoNumber = (TextView) findViewById(R.id.pomoNumber);
+        pomoNumber.setText(String.valueOf(pomoCounter));
         TextView status = (TextView) findViewById(R.id.status);
 
         switch (timerType) {
@@ -81,20 +83,17 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
-                ding.start();
                 if (timerType == TimerType.WORK) {
                     pomoCounter++;
-                    TextView pomoNumber = (TextView) findViewById(R.id.pomoNumber);
-                    pomoNumber.setText(pomoCounter);
-
                     if (pomoCounter % POMO_REST_NUMBER == 0 ) {
                         startTimer(LONG_REST_TIME, TimerType.LONG_REST);
                     } else {
-                        startTimer(REST_TIME, TimerType.LONG_REST);
+                        startTimer(REST_TIME, TimerType.REST);
                     }
                 } else {
                     startTimer(WORK_TIME, TimerType.WORK);
                 }
+                ding.start();
             }
         }.start();
     }
