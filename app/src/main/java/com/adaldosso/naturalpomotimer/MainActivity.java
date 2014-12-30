@@ -7,16 +7,20 @@ import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-enum TimerType { WORK, REST }
+enum TimerType { WORK, LONG_REST, REST }
 
 public class MainActivity extends Activity {
 
     public static final int WORK_TIME = 25;
     public static final int REST_TIME = 5;
+    private static final int POMO_REST_NUMBER = 4;
+    private static final int LONG_REST_TIME = 20;
     private CountDownTimer timer;
     private MediaPlayer tick, ding;
+    private int pomoCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,24 @@ public class MainActivity extends Activity {
         if (timer != null) {
             timer.cancel();
         }
-        final TextView clock = (TextView) findViewById(com.adaldosso.naturalpomotimer.R.id.clock);
+        final TextView clock = (TextView) findViewById(R.id.clock);
+        TextView status = (TextView) findViewById(R.id.status);
+
+        switch (timerType) {
+            case WORK:
+                clock.setTextColor(getResources().getColor(R.color.red));
+                status.setText(getResources().getString(R.string.working));
+                break;
+            case REST:
+                clock.setTextColor(getResources().getColor(R.color.green));
+                status.setText(getResources().getString(R.string.resting));
+                break;
+            case LONG_REST:
+                clock.setTextColor(getResources().getColor(R.color.green));
+                status.setText(getResources().getString(R.string.long_resting));
+                break;
+        }
+
         timer = new CountDownTimer(time * 60 * 1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
@@ -60,9 +81,14 @@ public class MainActivity extends Activity {
             }
 
             public void onFinish() {
+                pomoCounter++;
                 ding.start();
                 if (timerType == TimerType.WORK) {
-                    startTimer(REST_TIME, TimerType.REST);
+                    if (pomoCounter % POMO_REST_NUMBER == 0 ) {
+                        startTimer(LONG_REST_TIME, TimerType.LONG_REST);
+                    } else {
+                        startTimer(REST_TIME, TimerType.LONG_REST);
+                    }
                 } else {
                     startTimer(WORK_TIME, TimerType.WORK);
                 }
@@ -72,9 +98,8 @@ public class MainActivity extends Activity {
 
     public void startWork(View view) {
         startTimer(WORK_TIME, TimerType.WORK);
+        Button workButton = (Button) findViewById(R.id.workButton);
+        workButton.setText(getResources().getString(R.string.restart));
     }
 
-    public void startRest(View view) {
-        startTimer(REST_TIME, TimerType.REST);
-    }
 }

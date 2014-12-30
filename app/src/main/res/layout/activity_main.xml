@@ -17,10 +17,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
         android:textSize="@dimen/clock"
+        android:textColor="@color/red"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/clock_margin_top" />
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentTop="true" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -30,14 +32,25 @@
         android:gravity="bottom"
         android:clickable="false"
         android:focusable="false"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="40dp"
+        android:id="@+id/relativeLayout">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resting"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/status"
+            android:gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/work"
-            android:id="@+id/work"
+            android:id="@+id/workButton"
+            android:layout_below="@id/status"
             android:textColor="@android:color/white"
             android:textSize="@dimen/standard"
             android:clickable="true"
@@ -45,19 +58,6 @@
             android:background="@drawable/work_button"
             android:onClick="startWork" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/rest"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/standard"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/rest_button"
-            android:layout_below="@+id/work"
-            android:onClick="startRest"
-            android:id="@+id/button" />
     </RelativeLayout>
 
 </RelativeLayout>

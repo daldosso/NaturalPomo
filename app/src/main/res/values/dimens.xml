@@ -5,4 +5,5 @@
     <dimen name="clock">80sp</dimen>
     <dimen name="standard">50sp</dimen>
     <dimen name="clock_margin_top">40dp</dimen>
+    <dimen name="status">40sp</dimen>
 </resources>
